@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VELASCO SOTO ARQUITECTOS | Arquitectura y Diseño</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom styles */
+        .hero-image {
+            /* Background image for the hero section. Replace with a relevant client image. */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/Imagenes/RENDERS/RESIDENCIAL/imgFondo.png');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project-card {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .grid-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+        
+        @media (max-width: 640px) {
+            .grid-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position on screen */
+            z-index: 1000; /* Above everything else */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if content is too large */
+            background-color: rgba(0,0,0,0.8); /* Semi-transparent dark background */
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 900px; /* Increased to accommodate new design */
+            position: relative; /* Essential for absolute positioning of internal elements */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation-name: animatemodal;
+            animation-duration: 0.4s;
+            display: block; /* Changed to block to allow internal flex/hidden control */
+            overflow-y: auto; /* Allow vertical scrolling */
+        }
+
+        /* Modal animation */
+        @keyframes animatemodal {
+            from {top: -300px; opacity: 0}
+            to {top: 0; opacity: 1}
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            z-index: 1001; /* Ensures the close button is always on top */
+        }
+
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Custom color for the modal info box */
+        .bg-dark-teal {
+            background-color: #005f73; /* Previous color */
+        }
+
+        .bg-custom-yellow {
+            background-color: #f7b731; /* New color for the info box */
+        }
+
+        /* Elfsight slider doesn't need custom styles here as it's controlled by their JS/CSS */
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white bg-opacity-90 shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <!-- Velasco Soto Arquitectos Logo and Name -->
+                    <!-- Changed href to #home to allow smooth scroll to the top section -->
+                    <a href="#home" class="flex items-center text-xl font-bold text-gray-900">
+                        <img src="/Imagenes/vsa-black-001.png" alt="Logo Velasco Soto Arquitectos" class="h-10 mr-3">
+                        <span>VELASCO SOTO<span class="text-blue-600">ARQUITECTOS</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#work" class="text-gray-700 hover:text-blue-600 transition">Portafolio</a>
+                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="#work" class="block py-2 text-gray-700 hover:text-blue-600 transition">Portafolio</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600 transition">Servicios</a>
+            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Added id="home" for smooth scrolling to this section -->
+    <section id="home" class="hero-image h-screen flex items-center justify-center text-white pt-16">
+        <div class="text-center px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Diseño Arquitectónico Exclusivo y Sustentable</h1>
+            <p class="text-xl md:text-2xl mb-8">Transformando visiones en espacios únicos y funcionales con pasión por el detalle y compromiso con el medio ambiente.</p>
+            <a href="#work" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
+                Ver Nuestro Portafolio
+            </a>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section id="work" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Proyectos Destacados</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Explore nuestro portafolio de proyectos arquitectónicos y de diseño.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1: Kokoro Boutique (Main Card) -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="/Imagenes/RENDERS/COMERCIAL/imgComercial-1.png" alt="Kokoro Boutique - Interior Vista 1" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Kokoro Boutique</h3>
+                        <p class="text-gray-600 mb-4">Diseño de interiores para boutique en Tulum, Q. Roo (Proyecto).</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Comercial / Interiores</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="openModal('kokoroModal'); return false;">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Villa El Pedregal (Residencial) -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <!-- CORRECTION: Updated cover image path -->
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-1.JPEG" alt="Villa El Pedregal - Exterior Vista" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Villa El Pedregal</h3>
+                        <p class="text-gray-600 mb-4">Diseño residencial en Cabo, San Lucas.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Residencial</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="openModal('villaElPedregalModal'); return false;">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Lago Escondido Country Club -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <!-- Replace with actual Lago Escondido Country Club project image -->
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-1.png" alt="Lago Escondido Country Club" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Lago Escondido Country Club</h3>
+                        <!-- UPDATED: Simplified description for project card -->
+                        <p class="text-gray-600 mb-4">Master Plan en Atemajac de Brizuela, Jalisco.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Master Plan</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="openModal('lagoEscondidoModal'); return false;">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Cretan Villa -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <!-- Updated with actual Cretan Villa project image -->
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Cretan-Villa-1.png" alt="Cretan Villa" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Cretan Villa</h3>
+                        <p class="text-gray-600 mb-4">Residencia en Mikonos, Grecia (Proyecto Ejecutivo).</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Residencial</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="openModal('cretanVillaModal'); return false;">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Villa Tamarindo (New Project) -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <img src="/Imagenes/RENDERS/HOSPITALIDAD/Villa-Tamarindo-1.jpg" alt="Villa Tamarindo - Exterior" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Villa Tamarindo</h3>
+                        <p class="text-gray-600 mb-4">Hotel Boutique en Careyes, MX (En construcción).</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Hotel Boutique</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium" onclick="openModal('villaTamarindoModal'); return false;">Ver Proyecto →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-800 hover:text-white transition duration-300">
+                    Ver Portafolio Completo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before & After Comparison Section -->
+    <section id="before-after-comparison" class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Transformación de Espacios</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Desliza para ver el antes y después de nuestros proyectos.</p>
+            </div>
+
+            <!-- Elfsight Before and After Slider | Untitled Before and After Slider -->
+            <script src="https://static.elfsight.com/platform/platform.js" async></script>
+            <div class="elfsight-app-fe2ad5e8-0782-4af9-8237-9fc9c0c509a9" data-elfsight-app-lazy></div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Soluciones integrales de arquitectura y diseño adaptadas a sus necesidades.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1: Architectural Design -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-drafting-compass text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Diseño Arquitectónico</h3>
+                    <p class="text-gray-600">Nuestra dedicación principal se encuentra en el arte y la ciencia de la arquitectura, fusionando diseño creativo con soluciones funcionales.</p>
+                </div>
+                
+                <!-- Service 2: Interior Design -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-couch text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Diseño de Interiores</h3>
+                    <p class="text-gray-600">Creación de entornos interiores cautivadores y funcionales, cuidando cada detalle para lograr un equilibrio armonioso.</p>
+                </div>
+                
+                <!-- Service 3: Landscaping -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-tree text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Paisajismo</h3>
+                    <p class="text-gray-600">Diseño de entornos exteriores que complementan y realzan la estructura circundante, sostenibles y en armonía con el entorno.</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <!-- Service 4: Master Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-city text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Master Plan</h3>
+                    <p class="text-gray-600">Establecemos la visión global y la estrategia a largo plazo, integrando arquitectura, diseño de interiores y paisajismo.</p>
+                </div>
+                
+                <!-- Service 5: Visualization -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-vr-cardboard text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Visualización</h3>
+                    <p class="text-gray-600">Transformamos diseños en experiencias inmersivas, desde renders fotorrealistas hasta recorridos virtuales.</p>
+                </div>
+                
+                <!-- Service 6: Construction Supervision and Management -->
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-hard-hat text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Supervisión y Administración de Obra</h3>
+                    <p class="text-gray-600">Supervisión y administración detallada de la construcción para asegurar la ejecución precisa del proyecto.</p>
+                </div>
+            </div>
+            <!-- Additional Service: Graphic Design -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
+                    <div class="text-blue-600 mb-4">
+                        <i class="fas fa-palette text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Diseño Gráfico</h3>
+                    <p class="text-gray-600">Ofrecemos servicios de diseño gráfico para complementar la presentación de sus proyectos y comunicación visual.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre Velasco Soto Arquitectos</h2>
+                    <p class="text-gray-600 mb-6">Fundada en 2016 por el arquitecto Francisco Velasco, nuestra firma se especializa en arquitectura y diseño con un enfoque en innovación, estilo y exclusividad.</p>
+                    <p class="text-gray-600 mb-6">Nuestro equipo apasionado ofrece servicios en proyectos residenciales de alta gama, institucionales y comerciales, expandiendo nuestros horizontes a Estados Unidos, Europa, África y Asia.</p>
+                    <p class="text-600 mb-8">Nos caracterizamos por la pasión por los detalles, la funcionalidad y un compromiso inquebrantable con la arquitectura sustentable, creando obras de arte que se adaptan a su entorno y usuarios.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Diseño Arquitectónico</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Diseño de Interiores</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Paisajismo</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Master Plan</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Visualización 3D</div>
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Sustentabilidad</div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Replace with actual studio or project images -->
+                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Estudio+1" alt="Studio Work" class="rounded-lg shadow-md h-64 w-full object-cover">
+                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Equipo" alt="Team Meeting" class="rounded-lg shadow-md h-64 w-full object-cover">
+                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Proceso+Diseño" alt="Design Process" class="rounded-lg shadow-md h-64 w-full object-cover">
+                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Final+Presentation" alt="Final Presentation" class="rounded-lg shadow-md h-64 w-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (kept original as there are none in the PDF) -->
+    <!-- Commented out the Testimonials section as requested -->
+    <!--
+    <section class="py-20 bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Testimonios de Clientes</h2>
+                <p class="text-gray-300 max-w-2xl mx-auto">Lo que nuestros clientes dicen sobre trabajar con nosotros.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Las visualizaciones capturaron perfectamente la esencia de nuestro diseño y fueron fundamentales para asegurar la aprobación del proyecto por parte del comité de planificación."</p>
+                    <div class="flex items-center">
+                        <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center text-white font-bold mr-4">JD</div>
+                        <div>
+                            <h4 class="font-bold">James Donovan</h4>
+                            <p class="text-gray-400 text-sm">Arquitecto Principal, Donovan & Partners</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Su atención al detalle y la comprensión de la intención arquitectónica los distingue. Los renders superaron nuestras expectativas en todos los sentidos."</p>
+                    <div class="flex items-center">
+                        <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center text-white font-bold mr-4">SM</div>
+                        <div>
+                            <h4 class="font-bold">Sarah Mendez</h4>
+                            <p class="text-gray-400 text-sm">Directora de Diseño, UrbanFrame</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 mr-2">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">"La animación que crearon nos ayudó a pre-vender el 80% de las unidades antes de que comenzara la construcción. Una inversión invaluable para nuestro desarrollo."</p>
+                    <div class="flex items-center">
+                        <div class="bg-blue-600 rounded-full h-12 w-12 flex items-center justify-center text-white font-bold mr-4">TR</div>
+                        <div>
+                            <h4 class="font-bold">Thomas Reynolds</h4>
+                            <p class="text-gray-400 text-sm">CEO, Horizon Developments</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Contact Section (kept original as there are none in the PDF) -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Contáctenos</h2>
+                    <p class="text-gray-600 mb-8">¿Listo para discutir su proyecto? Contáctenos para una consulta y presupuesto sin compromiso.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="text-blue-600 mt-1 mr-4">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Nuestra Oficina</h4>
+                                <p class="text-gray-600">123 Calle del Diseño, Distrito Creativo<br>Londres, UK EC1V 9LB</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-blue-600 mt-1 mr-4">
+                                <i class="fas fa-envelope text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Envíanos un Email</h4>
+                                <p class="text-gray-600">info@velascosotoarquitectos.com<br>proyectos@velascosotoarquitectos.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-blue-600 mt-1 mr-4">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Llámanos</h4>
+                                <p class="text-gray-600">+44 20 1234 5678<br>Lun-Vie, 9am-6pm GMT</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="font-bold text-lg mb-4">Síganos</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
+                                <i class="fab fa-instagram text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
+                                <i class="fab fa-behance text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
+                                <i class="fab fa-linkedin-in text-2xl"></i>
+                            </a>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
+                                <i class="fab fa-vimeo-v text-2xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <form class="bg-gray-50 p-8 rounded-lg shadow-md">
+                        <div class="mb-6">
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Su Nombre</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Correo Electrónico</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="project" class="block text-gray-700 font-medium mb-2">Tipo de Proyecto</label>
+                            <select id="project" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                                <option value="">Seleccione tipo de proyecto</option>
+                                <option value="arquitectura">Diseño Arquitectónico</option>
+                                <option value="interiores">Diseño de Interiores</option>
+                                <option value="paisajismo">Paisajismo</option>
+                                <option value="masterplan">Master Plan</option>
+                                <option value="visualizacion">Visualización</option> <!-- Changed value as well -->
+                                <option value="supervision">Supervisión de Obra</option>
+                                <option value="administracion">Administración de Obra</option>
+                                <option value="grafico">Diseño Gráfico</option>
+                                <option value="other">Otro</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 font-medium mb-2">Detalles del Proyecto</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">VELASCO SOTO<span class="text-blue-600">ARQUITECTOS</span></h3>
+                    <p class="text-gray-400">Especialistas en arquitectura y diseño, creando espacios únicos y funcionales.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#work" class="text-gray-400 hover:text-white transition">Portafolio</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Servicios</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">Nosotros</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Diseño Arquitectónico</a></li>
+                        <li><a href="#" class="text-400 hover:text-white transition">Diseño de Interiores</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Paisajismo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Master Plan</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Suscríbase a nuestro boletín para actualizaciones de proyectos y novedades.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Su email" class="px-4 py-2 rounded-l-lg text-gray-900 w-full focus:outline-none">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 VELASCO SOTO ARQUITECTOS. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Términos de Servicio</a>
+                    <a href="#" class="text-400 hover:text-white transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Kokoro Boutique -->
+    <div id="kokoroModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('kokoroModal')">&times;</span>
+            
+            <!-- Design for small screens (mobile) -->
+            <div class="flex flex-col md:hidden">
+                <div class="p-4 bg-dark-teal text-white rounded-lg shadow-lg mb-4">
+                    <h3 class="text-2xl font-bold mb-4">Kokoro Boutique</h3>
+                    <p class="text-lg mb-2"><strong>Tipo:</strong> Diseño de Interiores</p>
+                    <p class="text-lg mb-2"><strong>Ubicación:</strong> Tulum, Q. Roo</p>
+                    <p class="text-lg mb-2"><strong>Estado:</strong> Proyecto</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <img src="/Imagenes/RENDERS/COMERCIAL/imgComercial-1.png" alt="Kokoro Boutique - Interior Vista 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/COMERCIAL/imgComercial-2.png" alt="Kokoro Boutique - Interior Vista 2" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Design for medium and large screens (desktop) -->
+            <div class="hidden md:flex relative w-full h-full">
+                <!-- Image Section -->
+                <div class="grid grid-cols-1 gap-4 w-full">
+                    <img src="/Imagenes/RENDERS/COMERCIAL/imgComercial-1.png" alt="Kokoro Boutique - Interior Vista 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/COMERCIAL/imgComercial-2.png" alt="Kokoro Boutique - Interior Vista 2" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                <!-- Info Box - Absolutely positioned over images -->
+                <div class="absolute top-1/2 left-0 transform -translate-y-1/2 p-4 bg-dark-teal text-white rounded-lg shadow-lg z-10"
+                     style="width: 250px; margin-left: 10px;">
+                    <h3 class="text-2xl font-bold mb-4">Kokoro Boutique</h3>
+                    <p class="text-lg mb-2"><strong>Tipo:</strong> Diseño de Interiores</p>
+                    <p class="text-lg mb-2"><strong>Ubicación:</strong> Tulum, Q. Roo</p>
+                    <p class="text-lg mb-2"><strong>Estado:</strong> Proyecto</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Villa El Pedregal -->
+    <div id="villaElPedregalModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('villaElPedregalModal')">&times;</span>
+            
+            <!-- Design for small screens (mobile) -->
+            <div class="flex flex-col md:hidden">
+                <div class="p-4 bg-custom-yellow text-white rounded-lg shadow-lg mb-4">
+                    <h3 class="text-2xl font-bold mb-4">Villa El Pedregal</h3>
+                    <p class="text-lg mb-2"><strong>Tipo:</strong> Residencial</p>
+                    <p class="text-lg mb-2"><strong>Ubicación:</strong> Cabo, San Lucas</p>
+                    <p class="text-lg mb-2"><strong>Estado:</strong> Construido</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-1.JPEG" alt="Villa El Pedregal - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-2.JPG" alt="Villa El Pedregal - View 2" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-3.png" alt="Villa El Pedregal - View 3" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Design for medium and large screens (desktop) -->
+            <div class="hidden md:flex flex-col gap-4 w-full h-full">
+                <!-- Image 1 with full info box at bottom left -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-1.JPEG" alt="Villa El Pedregal - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 left-4 p-4 bg-custom-yellow text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Villa El Pedregal</h3>
+                        <p class="text-lg mb-2"><strong>Tipo:</strong> Residencial</p>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Cabo, San Lucas</p>
+                        <p class="text-lg mb-2"><strong>Estado:</strong> Construido</p>
+                    </div>
+                </div>
+                <!-- Image 2 with simplified info box at bottom right -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-2.JPG" alt="Villa El Pedregal - View 2" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 right-4 p-4 bg-custom-yellow text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Villa El Pedregal</h3>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Cabo, San Lucas</p>
+                    </div>
+                </div>
+                <!-- Image 3 with simplified info box at bottom left -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-3.png" alt="Villa El Pedregal - View 3" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 left-4 p-4 bg-custom-yellow text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Villa El Pedregal</h3>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Cabo, San Lucas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Lago Escondido Country Club -->
+    <div id="lagoEscondidoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('lagoEscondidoModal')">&times;</span>
+            
+            <!-- Design for small screens (mobile) -->
+            <div class="flex flex-col md:hidden">
+                <div class="p-4 bg-dark-teal text-white rounded-lg shadow-lg mb-4">
+                    <h3 class="text-2xl font-bold mb-4">Lago Escondido Country Club</h3>
+                    <p class="text-lg mb-2"><strong>Tipo:</strong> Master Plan</p>
+                    <p class="text-lg mb-2"><strong>Ubicación:</strong> Atemajac de Brizuela, Jalisco</p>
+                    <p class="text-lg mb-2"><strong>Estado:</strong> Proyecto</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-1.png" alt="Lago Escondido Country Club - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-2.png" alt="Lago Escondido Country Club - View 2" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-3.png" alt="Lago Escondido Country Club - View 3" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-4.png" alt="Lago Escondido Country Club - View 4" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Design for medium and large screens (desktop) -->
+            <div class="hidden md:flex flex-col gap-4 w-full h-full">
+                <!-- Image 1 with full info box at bottom left -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-1.png" alt="Lago Escondido Country Club - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 left-4 p-4 bg-dark-teal text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Lago Escondido Country Club</h3>
+                        <p class="text-lg mb-2"><strong>Tipo:</strong> Master Plan</p>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Atemajac de Brizuela, Jalisco</p>
+                        <p class="text-lg mb-2"><strong>Estado:</strong> Proyecto</p>
+                    </div>
+                </div>
+                <!-- Images 2 & 3 stacked, with info box between them, aligned right and overlapping -->
+                <div class="relative flex flex-col gap-4 w-full">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-2.png" alt="Lago Escondido Country Club - View 2" class="w-full h-auto rounded-lg shadow-md">
+                    <!-- Info box between image 2 and image 3, aligned right and almost to the border -->
+                    <div class="absolute right-4 top-1/2 transform -translate-y-1/2 p-4 bg-dark-teal text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Lago Escondido Country Club</h3>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Atemajac de Brizuela, Jalisco</p>
+                    </div>
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-3.png" alt="Lago Escondido Country Club - View 3" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+                <!-- Image 4 with simplified info box at bottom left -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-4.png" alt="Lago Escondido Country Club - View 4" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 left-4 p-4 bg-dark-teal text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Lago Escondido Country Club</h3>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Atemajac de Brizuela, Jalisco</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Cretan Villa -->
+    <div id="cretanVillaModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('cretanVillaModal')">&times;</span>
+            
+            <!-- Design for small screens (mobile) -->
+            <div class="flex flex-col md:hidden">
+                <div class="p-4 bg-dark-teal text-white rounded-lg shadow-lg mb-4">
+                    <h3 class="text-2xl font-bold mb-4">Cretan Villa</h3>
+                    <p class="text-lg mb-2"><strong>Tipo:</strong> Residencial</p>
+                    <p class="text-lg mb-2"><strong>Ubicación:</strong> Mikonos, Grecia</p>
+                    <p class="text-lg mb-2"><strong>Estado:</strong> Proyecto Ejecutivo</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Cretan-Villa-1.png" alt="Cretan Villa - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Cretan-Villa-2.png" alt="Cretan Villa - View 2" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Design for medium and large screens (desktop) -->
+            <div class="hidden md:flex flex-col gap-4 w-full relative">
+                <!-- Image 1 -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Cretan-Villa-1.png" alt="Cretan Villa - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <!-- Info Box - Positioned to overlap between images, aligned left -->
+                    <div class="absolute left-4 top-[90%] transform -translate-y-1/2 p-4 bg-dark-teal text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Cretan Villa</h3>
+                        <p class="text-lg mb-2"><strong>Tipo:</strong> Residencial</p>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Mikonos, Grecia</p>
+                        <p class="text-lg mb-2"><strong>Estado:</strong> Proyecto Ejecutivo</p>
+                    </div>
+                </div>
+                <!-- Image 2 -->
+                <img src="/Imagenes/RENDERS/RESIDENCIAL/Cretan-Villa-2.png" alt="Cretan Villa - View 2" class="w-full h-auto rounded-lg shadow-md">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Villa Tamarindo -->
+    <div id="villaTamarindoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('villaTamarindoModal')">&times;</span>
+            
+            <!-- Design for small screens (mobile) -->
+            <div class="flex flex-col md:hidden">
+                <div class="p-4 bg-custom-yellow text-white rounded-lg shadow-lg mb-4">
+                    <h3 class="text-2xl font-bold mb-4">Villa Tamarindo</h3>
+                    <p class="text-lg mb-2"><strong>Tipo:</strong> Hotel Boutique</p>
+                    <p class="text-lg mb-2"><strong>Ubicación:</strong> Careyes, MX</p>
+                    <p class="text-lg mb-2"><strong>Estado:</strong> En construcción</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <img src="/Imagenes/RENDERS/HOSPITALIDAD/Villa-Tamarindo-1.jpg" alt="Villa Tamarindo - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/HOSPITALIDAD/Villa-Tamarindo-2.png" alt="Villa Tamarindo - View 2" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Design for medium and large screens (desktop) -->
+            <div class="hidden md:flex flex-col gap-4 w-full relative">
+                <!-- Image 1 with info box at bottom left -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/HOSPITALIDAD/Villa-Tamarindo-1.jpg" alt="Villa Tamarindo - View 1" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 left-4 p-4 bg-custom-yellow text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Villa Tamarindo</h3>
+                        <p class="text-lg mb-2"><strong>Tipo:</strong> Hotel Boutique</p>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Careyes, MX</p>
+                        <p class="text-lg mb-2"><strong>Estado:</strong> En construcción</p>
+                    </div>
+                </div>
+                <!-- Image 2 with info box at bottom right -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/HOSPITALIDAD/Villa-Tamarindo-2.png" alt="Villa Tamarindo - View 2" class="w-full h-auto rounded-lg shadow-md">
+                    <div class="absolute bottom-4 right-4 p-4 bg-custom-yellow text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-2xl font-bold mb-4">Villa Tamarindo</h3>
+                        <p class="text-lg mb-2"><strong>Ubicación:</strong> Careyes, MX</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Only prevent default behavior if it's not a modal link
+                if (!this.getAttribute('onclick') || !this.getAttribute('onclick').includes('openModal')) {
+                    e.preventDefault(); // Prevent default jump
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+                
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                console.log('Thank you for your message! We will get back to you soon.');
+                // Here you could add a custom modal to display the message to the user.
+                form.reset();
+            });
+        }
+
+        // Functions for the modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex'; // Use flex to center
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close modal by clicking outside the content
+        window.onclick = function(event) {
+            // Get all modals
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
