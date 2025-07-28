@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lago Escondido Country Club | VELASCO SOTO ARQUITECTOS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts para Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Definición de la fuente Spartan */
+        @font-face {
+            font-family: 'Spartan';
+            src: url('/Fonts/futura-similar-fonts/Spartan/spartan/Spartan[wght].ttf') format('truetype'); /* URL de la fuente Spartan actualizada */
+            font-weight: 100 900; /* Define los pesos disponibles en tu archivo variable */
+            font-display: swap; /* Mejora la carga de la fuente */
+        }
+
+        /* Estilos generales para el cuerpo de la página */
+        body {
+            font-family: 'Montserrat', Helvetica, 'Helvetica Neue', Arial, sans-serif; /* Fuente principal para textos */
+            background-color: #f9fafb; /* bg-gray-50 */
+            color: #374151; /* text-gray-800 */
+        }
+
+        /* Estilos para la fuente del logo */
+        .logo-font {
+            font-family: 'Spartan', sans-serif; /* Usamos Spartan para el logo */
+        }
+
+        /* Colores personalizados para el cuadro de información del modal (adaptado para la página) */
+        .bg-dark-teal {
+            background-color: #005f73;
+        }
+
+        /* Clase para limpiar floats */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navegación -->
+    <nav class="fixed w-full bg-white bg-opacity-90 shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <!-- Logo y Nombre de Velasco Soto Arquitectos -->
+                    <a href="index.html#home" class="flex items-center text-xl font-bold text-gray-900">
+                        <img src="/Imagenes/Logos/vsa-black-001.png" alt="Logo Velasco Soto Arquitectos" class="h-10 mr-3">
+                        <span class="logo-font">VELASCO SOTO<span class="text-blue-600">ARQUITECTOS</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                    <a href="proyectos.html" class="text-blue-600 font-bold transition">Portafolio</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="text-gray-700">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menú móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600 transition">Inicio</a>
+            <a href="proyectos.html" class="block py-2 text-blue-600 font-bold transition">Portafolio</a>
+            <a href="index.html#services" class="block py-2 text-gray-700 hover:text-blue-600 transition">Servicios</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Sección de Héroe del Proyecto -->
+    <section class="relative bg-cover bg-center h-96 flex items-center justify-center text-white" style="background-image: url('/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-1.png');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Lago Escondido Country Club</h1>
+            <p class="text-xl md:text-2xl">Un Master Plan Integral en Armonía con la Naturaleza</p>
+        </div>
+    </section>
+
+    <!-- Contenido del Proyecto -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Contenedor principal para el contenido del proyecto, sin flex para permitir floats -->
+            <div class="clearfix">
+                <!-- Información del Proyecto (flotado a la derecha en pantallas grandes) -->
+                <div class="w-full md:w-72 lg:float-right lg:ml-8 lg:mb-8 bg-dark-teal text-white p-6 rounded-lg shadow-lg h-fit">
+                    <h3 class="text-xl font-bold mb-4">Detalles del Proyecto</h3>
+                    <p class="text-base mb-2"><strong>Tipo:</strong> Master Plan</p>
+                    <p class="text-base mb-2"><strong>Ubicación:</strong> Atemajac de Brizuela, Jalisco</p>
+                    <p class="text-base mb-2"><strong>Estado:</strong> Proyecto</p>
+                    <p class="text-base mb-2"><strong>Área:</strong> 150 Hectáreas</p>
+                    <p class="text-base mb-2"><strong>Año:</strong> 2022</p>
+                </div>
+
+                <!-- Descripción del Proyecto (el texto fluirá alrededor del recuadro de detalles) -->
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">Visión y Desarrollo del Master Plan</h2>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        El proyecto Lago Escondido Country Club, ubicado en Atemajac de Brizuela, Jalisco, representa un ambicioso master plan diseñado para fusionar la vida de lujo con la belleza natural del entorno. Nuestro enfoque principal fue crear un desarrollo que ofreciera una experiencia residencial y recreativa de primer nivel, minimizando el impacto ambiental y maximizando la conexión de los habitantes con el paisaje.
+                    </p>
+                    
+                    <!-- Imagen 2 - flotada a la derecha -->
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-2.png" alt="Lago Escondido Country Club - Vista Aérea" class="w-full md:w-2/3 lg:w-1/2 float-right ml-8 mb-8 rounded-lg shadow-md object-cover">
+                    
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        El master plan abarca la planificación de áreas residenciales, zonas comunes, instalaciones deportivas, y espacios verdes, todo ello interconectado por una red de senderos y vías que promueven la movilidad sostenible. Se realizó un estudio exhaustivo del terreno y la topografía para integrar las construcciones de manera orgánica, respetando los flujos naturales del agua y la vegetación existente.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        La sostenibilidad fue un pilar fundamental en cada etapa del diseño, desde la elección de materiales hasta la implementación de sistemas de gestión de recursos. Buscamos crear un ecosistema donde la arquitectura y la naturaleza coexistieran en perfecta armonía, ofreciendo a los residentes un estilo de vida exclusivo y responsable con el medio ambiente.
+                    </p>
+
+                    <div class="clearfix"></div> <!-- Limpiar flotantes antes de la siguiente sección de texto/lista -->
+
+                    <h3 class="text-2xl font-bold mb-4 mt-8">Componentes Clave del Master Plan</h3>
+                    <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                        <li><strong>Áreas Residenciales:</strong> Lotes y villas diseñadas para integrarse en el paisaje, con vistas privilegiadas al lago y las montañas.</li>
+                        <li><strong>Casa Club:</strong> Un centro social y recreativo con amenidades de lujo, incluyendo restaurantes, piscinas y espacios para eventos.</li>
+                        <li><strong>Campo de Golf:</strong> Diseño paisajístico que se adapta a la topografía, ofreciendo un desafío para golfistas de todos los niveles.</li>
+                        <li><strong>Zonas Verdes y Senderos:</strong> Amplias áreas naturales preservadas y senderos para caminatas, ciclismo y exploración.</li>
+                        <li><strong>Infraestructura Sostenible:</strong> Sistemas de recolección de agua de lluvia, tratamiento de aguas residuales y uso de energías renovables.</li>
+                    </ul>
+
+                    <!-- Imagen 3 - flotada a la izquierda -->
+                    <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-3.png" alt="Lago Escondido Country Club - Vista de la Casa Club" class="w-full md:w-2/3 lg:w-1/2 float-left mr-8 mb-8 rounded-lg shadow-md object-cover">
+
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        La planificación detallada de la infraestructura incluyó la optimización de las redes de servicios para minimizar la huella ecológica del desarrollo. Cada elemento fue concebido para contribuir a la calidad de vida de los residentes, fomentando la comunidad y el disfrute del entorno natural.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        Lago Escondido Country Club es más que un desarrollo; es un concepto de vida que celebra la naturaleza, el lujo y la sostenibilidad. Es un testimonio de nuestra capacidad para diseñar proyectos de gran escala que son tanto funcionales como estéticamente excepcionales, creando valor a largo plazo para sus habitantes y el medio ambiente.
+                    </p>
+
+                    <div class="clearfix"></div> <!-- Limpiar flotantes antes de la última imagen -->
+
+                    <!-- Imagen 4 - ancho completo -->
+                    <div class="w-full mt-8">
+                        <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-4.png" alt="Lago Escondido Country Club - Perspectiva General" class="w-full h-auto rounded-lg shadow-md object-cover">
+                        <p class="text-center text-gray-500 text-sm mt-2">Vista general del master plan de Lago Escondido Country Club.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <a href="proyectos.html" class="inline-block border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-800 hover:text-white transition duration-300">
+                    ← Volver al Portafolio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">VELASCO SOTO<span class="text-blue-600">ARQUITECTOS</span></h3>
+                    <p class="text-gray-400">Especialistas en arquitectura y diseño, creando espacios únicos y funcionales.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="proyectos.html" class="text-gray-400 hover:text-white transition">Portafolio</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Servicios</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition">Nosotros</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Diseño Arquitectónico</a></li>
+                        <li><a href="#" class="text-400 hover:text-white transition">Diseño de Interiores</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Paisajismo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Master Plan</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Suscríbase a nuestro boletín para actualizaciones de proyectos y novedades.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Su email" class="px-4 py-2 rounded-l-lg text-gray-900 w-full focus:outline-none">
+                        <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2023 VELASCO SOTO ARQUITECTOS. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Términos de Servicio</a>
+                    <a href="#" class="text-400 hover:text-white transition">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Alternar menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

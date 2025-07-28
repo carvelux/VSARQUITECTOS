@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VELASCO SOTO ARQUITECTOS | Arquitectura y Diseño</title>
+    <title>Portafolio | VELASCO SOTO ARQUITECTOS</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts para Montserrat -->
@@ -31,57 +31,6 @@
             font-family: 'Spartan', sans-serif; /* Usamos Spartan para el logo */
         }
 
-        /* Estilos personalizados */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding-top: 64px; /* Space for fixed navigation */
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            background-size: cover;
-        }
-
-        .video-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for text readability */
-            z-index: -1;
-        }
-
-        /* Nuevo estilo para la capa de fade blanco */
-        .white-fade-overlay {
-            position: fixed; /* Fixed to cover the entire viewport */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            z-index: 9999; /* High z-index to be on top */
-            opacity: 1; /* Start fully opaque */
-            transition: opacity 1.5s ease-out; /* Smooth fade out */
-            pointer-events: none; /* Allows clicks/interactions to pass through once faded */
-        }
-        
         .project-card {
             transition: transform 0.3s ease;
             cursor: pointer; /* Add cursor pointer to indicate clickability */
@@ -166,190 +115,33 @@
             background-color: #f7b731;
         }
 
-        .bg-amazonica-orange { /* Nuevo color para Amazonica WV */
-            background-color: #ff8c00; /* Un tono de naranja vibrante */
+        .bg-amazonica-orange {
+            background-color: #ff8c00;
         }
 
-        /* Estilos del deslizador de comparación de imágenes */
-        .comparison-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border-radius: 12px;
-        }
-        
-        .image-before, .image-after {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .image-before {
-            z-index: 1;
-            /* clip-path will be controlled by JavaScript */
-            clip-path: inset(0 0 0 50%); /* Initial state */
-        }
-        
-        .slider-handle {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 60px; /* Increased width for easier grabbing */
-            height: 100%;
-            background: transparent;
-            z-index: 10;
-            cursor: ew-resize;
-            transform: translateX(-50%);
-        }
-        
-        .slider-arrow {
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            transition: all 0.2s ease;
-        }
-        
-        .slider-arrow:hover {
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-        
-        /* No need for .slider-arrow svg as we are using font-awesome icon directly */
-        
-        .slider-line {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: white;
-            transform: translateX(-50%);
-            box-shadow: 0 0 5px rgba(0,0,0,0.3);
-        }
-        
-        .label {
-            position: absolute;
-            bottom: 20px;
-            padding: 8px 16px;
-            background: rgba(0,0,0,0.6);
-            color: white;
-            border-radius: 20px;
-            font-weight: bold;
-            z-index: 5;
-            transition: opacity 0.3s ease; /* Transición para la visibilidad */
-        }
-        
-        .label-before {
-            left: 20px;
-        }
-        
-        .label-after {
-            right: 20px;
-        }
-
-        /* Estilos del carrusel de logos */
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-        }
-
-        .carousel-track {
-            display: flex;
-            /* Eliminar la transición basada en JS, ahora usaremos animación CSS */
-            /* transition: transform 1.5s ease-in-out; */ 
-            animation: scroll-left 40s linear infinite; /* Animación de desplazamiento infinito */
-            width: fit-content; /* Permitir que el contenido determine el ancho */
-        }
-
-        .carousel-slide {
-            flex: 0 0 auto; /* No grow, no shrink, base on content */
-            width: 25%; /* Show 4 logos at a time for larger screens */
-            padding: 0.5rem; /* Reducido para acercar los logos */
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .carousel-slide img {
-            max-width: 100%;
-            height: auto;
-            max-height: 120px; /* Aumentado para hacer los logos más grandes */
-            filter: grayscale(100%); /* Make logos grayscale */
-            transition: filter 0.3s ease;
-        }
-
-        .carousel-slide img:hover {
-            filter: grayscale(0%); /* Color on hover */
-        }
-
-        /* Responsive adjustments for carousel */
-        @media (max-width: 1024px) { /* md breakpoint and below */
-            .carousel-slide {
-                width: 33.33%; /* Show 3 logos */
-            }
-        }
-
-        @media (max-width: 768px) { /* sm breakpoint and below */
-            .carousel-slide {
-                width: 50%; /* Show 2 logos */
-            }
-        }
-
-        @media (max-width: 640px) { /* xs breakpoint and below */
-            .carousel-slide {
-                width: 100%; /* Show 1 logo */
-            }
-        }
-
-        /* Definición de la animación de desplazamiento */
-        @keyframes scroll-left {
-            from {
-                transform: translateX(0%);
-            }
-            to {
-                /* Desplaza el 50% del ancho total del track (una copia completa de los logos) */
-                transform: translateX(-50%); 
-            }
+        .bg-pinar-green { /* Nuevo color para Pinar */
+            background-color: #228B22; /* Un tono de verde bosque */
         }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-800">
-    <!-- Capa de fade blanco -->
-    <div id="whiteFadeOverlay" class="white-fade-overlay"></div>
-
     <!-- Navegación -->
     <nav class="fixed w-full bg-white bg-opacity-90 shadow-sm z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <!-- Logo y Nombre de Velasco Soto Arquitectos -->
-                    <!-- Cambiado href a #home para permitir el desplazamiento suave a la sección superior -->
-                    <a href="#home" class="flex items-center text-xl font-bold text-gray-900">
+                    <a href="index.html#home" class="flex items-center text-xl font-bold text-gray-900">
                         <img src="/Imagenes/Logos/vsa-black-001.png" alt="Logo Velasco Soto Arquitectos" class="h-10 mr-3">
                         <span class="logo-font">VELASCO SOTO<span class="text-blue-600">ARQUITECTOS</span></span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="proyectos.html" class="text-gray-700 hover:text-blue-600 transition">Portafolio</a>
-                    <a href="#services" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
-                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
-                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+                    <a href="index.html" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                    <a href="#portfolio" class="text-blue-600 font-bold transition">Portafolio</a>
+                    <a href="index.html#services" class="text-gray-700 hover:text-blue-600 transition">Servicios</a>
+                    <a href="index.html#about" class="text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+                    <a href="index.html#contact" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button id="menu-toggle" class="text-gray-700">
@@ -360,39 +152,24 @@
         </div>
         <!-- Menú móvil -->
         <div id="mobile-menu" class="hidden md:hidden bg-white py-2 px-4 shadow-lg">
-            <a href="proyectos.html" class="block py-2 text-gray-700 hover:text-blue-600 transition">Portafolio</a>
-            <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600 transition">Servicios</a>
-            <a href="#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">Nosotros</a>
-            <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contacto</a>
+            <a href="index.html" class="block py-2 text-gray-700 hover:text-blue-600 transition">Inicio</a>
+            <a href="#portfolio" class="block py-2 text-blue-600 font-bold transition">Portafolio</a>
+            <a href="index.html#services" class="block py-2 text-gray-700 hover:text-blue-600 transition">Servicios</a>
+            <a href="index.html#about" class="block py-2 text-gray-700 hover:text-blue-600 transition">Nosotros</a>
+            <a href="index.html#contact" class="block py-2 text-gray-700 hover:text-blue-600 transition">Contacto</a>
         </div>
     </nav>
 
-    <!-- Sección Hero (con video de fondo) -->
-    <section id="home" class="hero-section">
-        <video autoplay loop muted playsinline class="hero-video">
-            <source src="Animaciones/Animacion_inicio.mp4" type="video/mp4">
-            Tu navegador no soporta el elemento de video.
-        </video>
-        <div class="video-overlay"></div>
-        <div class="relative z-10 px-4 max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Diseño Arquitectónico Exclusivo y Sustentable</h1>
-            <p class="text-xl md:text-2xl mb-8">Transformando visiones en espacios únicos y funcionales con pasión por el detalle y compromiso con el medio ambiente.</p>
-            <a href="proyectos.html" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 inline-block">
-                Ver Nuestro Portafolio
-            </a>
-        </div>
-    </section>
-
-    <!-- Proyectos Destacados -->
-    <section id="work" class="py-20 bg-white">
+    <!-- Sección de Portafolio -->
+    <section id="portfolio" class="py-20 bg-white pt-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Proyectos Destacados</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Explore nuestro portafolio de proyectos arquitectónicos y de diseño.</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Nuestro Portafolio Completo</h1>
+                <p class="text-gray-600 max-w-3xl mx-auto">Sumérgete en la diversidad de nuestros proyectos, desde residencias exclusivas hasta desarrollos comerciales y master plans innovadores.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto 1: Kokoro Boutique (Tarjeta Principal) -->
+                <!-- Proyecto 1: Kokoro Boutique -->
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('kokoroModal');">
                     <img src="/Imagenes/RENDERS/COMERCIAL/imgComercial-1.png" alt="Kokoro Boutique - Interior Vista 1" class="w-full h-64 object-cover">
                     <div class="p-6">
@@ -405,13 +182,12 @@
                     </div>
                 </div>
                 
-                <!-- Proyecto 2: Villa El Pedregal (Residencial) -->
+                <!-- Proyecto 2: Villa El Pedregal -->
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('villaElPedregalModal');">
-                    <!-- CORRECCIÓN: Ruta de imagen de portada actualizada -->
                     <img src="/Imagenes/RENDERS/RESIDENCIAL/Villa-El-Pedregal-1.JPEG" alt="Villa El Pedregal - Exterior Vista" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Villa El Pedregal</h3>
-                        <p class="text-gray-600 mb-4">Diseño residencial en Cabo, San Lucas.</p>
+                        <p class="text-gray-600 mb-4">Diseño residencial en Cabo, San Lucas (Construido).</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">Residencial</span>
                             <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Ver Proyecto →</a>
@@ -421,12 +197,10 @@
 
                 <!-- Proyecto 3: Lago Escondido Country Club -->
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('lagoEscondidoModal');">
-                    <!-- Reemplazar con la imagen real del proyecto Lago Escondido Country Club -->
                     <img src="/Imagenes/RENDERS/MASTER-PLAN/Lago-Escondido-1.png" alt="Lago Escondido Country Club" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Lago Escondido Country Club</h3>
-                        <!-- ACTUALIZADO: Descripción simplificada para la tarjeta del proyecto -->
-                        <p class="text-gray-600 mb-4">Master Plan en Atemajac de Brizuela, Jalisco.</p>
+                        <p class="text-gray-600 mb-4">Master Plan en Atemajac de Brizuela, Jalisco (Proyecto).</p>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-500">Master Plan</span>
                             <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Ver Proyecto →</a>
@@ -436,7 +210,6 @@
 
                 <!-- Proyecto 4: Cretan Villa -->
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('cretanVillaModal');">
-                    <!-- Actualizado con la imagen real del proyecto Cretan Villa -->
                     <img src="/Imagenes/RENDERS/RESIDENCIAL/Cretan-Villa-1.png" alt="Cretan Villa" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2">Cretan Villa</h3>
@@ -448,7 +221,7 @@
                     </div>
                 </div>
 
-                <!-- Proyecto 5: Villa Tamarindo (Nuevo Proyecto) -->
+                <!-- Proyecto 5: Villa Tamarindo -->
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('villaTamarindoModal');">
                     <img src="/Imagenes/RENDERS/HOSPITALIDAD/Villa-Tamarindo-1.jpg" alt="Villa Tamarindo - Exterior" class="w-full h-64 object-cover">
                     <div class="p-6">
@@ -461,7 +234,7 @@
                     </div>
                 </div>
 
-                <!-- Nuevo Proyecto: Amazonica WV -->
+                <!-- Proyecto 6: Amazonica WV -->
                 <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('amazonicaWVModal');">
                     <img src="/Imagenes/RENDERS/COMERCIAL/AmazonicaWV_1.jpg" alt="Amazonica WV - Interior Vista 1" class="w-full h-64 object-cover">
                     <div class="p-6">
@@ -473,290 +246,18 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center mt-12">
-                <a href="proyectos.html" class="inline-block border-2 border-gray-800 text-gray-800 font-bold py-3 px-8 rounded-full hover:bg-gray-800 hover:text-white transition duration-300">
-                    Ver Portafolio Completo
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Sección de Colaboradores (Carrusel) -->
-    <section id="collaborators" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Colaboradores</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Trabajamos con los mejores para ofrecer resultados excepcionales.</p>
-            </div>
-
-            <div class="carousel-container relative">
-                <div class="carousel-track" id="carouselTrack">
-                    <!-- Original Logos -->
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/AMBAR_CONSULTORES.png" alt="Logo Ambar Consultores"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/APLOMO.jpeg" alt="Logo Aplomo"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/ARCBIM.png" alt="Logo ARCBIM"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/De_la_Torre_Real_Estate.png" alt="Logo De la Torre Real Estate"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/ESTUDIO_BASARI.png" alt="Logo Estudio Basari"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/IR_ARQS.png" alt="Logo IR ARQS"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/NATURHABITAT.png" alt="Logo Naturhabitat"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/RENDERWAVE.png" alt="Logo Renderwave"></div>
-
-                    <!-- Duplicate Logos for infinite scroll -->
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/AMBAR_CONSULTORES.png" alt="Logo Ambar Consultores"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/APLOMO.jpeg" alt="Logo Aplomo"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/ARCBIM.png" alt="Logo ARCBIM"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/De_la_Torre_Real_Estate.png" alt="Logo De la Torre Real Estate"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/ESTUDIO_BASARI.png" alt="Logo Estudio Basari"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/IR_ARQS.png" alt="Logo IR ARQS"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/NATURHABITAT.png" alt="Logo Naturhabitat"></div>
-                    <div class="carousel-slide"><img src="/Imagenes/Logos/Externos/RENDERWAVE.png" alt="Logo Renderwave"></div>
-                </div>
-                <!-- Los botones de navegación han sido eliminados del DOM -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Comparación Antes y Después (Nueva Implementación) -->
-    <section id="before-after-comparison" class="py-20 bg-gray-100">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Transformación de Espacios</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Desliza para ver el antes y después de nuestros proyectos.</p>
-            </div>
-
-            <div class="comparison-container aspect-video relative">
-                <!-- Imagen "Después" (fondo) -->
-                <img src="/Imagenes/Comparacion/Imagen_Despues.jpg" 
-                     alt="Después" 
-                     class="image-after w-full h-full object-cover">
-                
-                <!-- Imagen "Antes" (superior) -->
-                <img src="/Imagenes/Comparacion/Imagen_Antes.jpg" 
-                     alt="Antes" 
-                     class="image-before w-full h-full object-cover">
-                
-                <!-- Etiquetas -->
-                <div class="label label-before">ANTES</div>
-                <div class="label label-after">DESPUÉS</div>
-                
-                <!-- Control deslizante -->
-                <div class="slider-handle" id="slider">
-                    <div class="slider-line"></div>
-                    <div class="slider-arrow">
-                        <i class="fas fa-arrows-alt-h"></i> <!-- Icono de Font Awesome -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Servicios -->
-    <section id="services" class="py-20 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestros Servicios</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Soluciones integrales de arquitectura y diseño adaptadas a sus necesidades.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Servicio 1: Diseño Arquitectónico -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-drafting-compass text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Diseño Arquitectónico</h3>
-                    <p class="text-gray-600">Nuestra dedicación principal se encuentra en el arte y la ciencia de la arquitectura, fusionando diseño creativo con soluciones funcionales.</p>
-                </div>
-                
-                <!-- Servicio 2: Diseño de Interiores -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-couch text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Diseño de Interiores</h3>
-                    <p class="text-gray-600">Creación de entornos interiores cautivadores y funcionales, cuidando cada detalle para lograr un equilibrio armonioso.</p>
-                </div>
-                
-                <!-- Servicio 3: Paisajismo -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-tree text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Paisajismo</h3>
-                    <p class="text-gray-600">Diseño de entornos exteriores que complementan y realzan la estructura circundante, sostenibles y en armonía con el entorno.</p>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                <!-- Servicio 4: Master Plan -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-city text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Master Plan</h3>
-                    <p class="text-gray-600">Establecemos la visión global y la estrategia a largo plazo, integrando arquitectura, diseño de interiores y paisajismo.</p>
-                </div>
-                
-                <!-- Servicio 5: Visualización -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-vr-cardboard text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Visualización</h3>
-                    <p class="text-gray-600">Transformamos diseños en experiencias inmersivas, desde renders fotorrealistas hasta recorridos virtuales.</p>
-                </div>
-                
-                <!-- Servicio 6: Supervisión y Administración de Obra -->
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-hard-hat text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Supervisión y Administración de Obra</h3>
-                    <p class="text-gray-600">Supervisión y administración detallada de la construcción para asegurar la ejecución precisa del proyecto.</p>
-                </div>
-            </div>
-            <!-- Servicio Adicional: Diseño Gráfico -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                <div class="bg-white p-8 rounded-lg shadow-md hover:shadow-lg transition">
-                    <div class="text-blue-600 mb-4">
-                        <i class="fas fa-palette text-4xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Diseño Gráfico</h3>
-                    <p class="text-gray-600">Ofrecemos servicios de diseño gráfico para complementar la presentación de sus proyectos y comunicación visual.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Quiénes Somos -->
-    <section id="about" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Sobre Velasco Soto Arquitectos</h2>
-                    <p class="text-gray-600 mb-6">Fundada en 2016 por el arquitecto Francisco Velasco, nuestra firma se especializa en arquitectura y diseño con un enfoque en innovación, estilo y exclusividad.</p>
-                    <p class="text-gray-600 mb-6">Nuestro equipo apasionado ofrece servicios en proyectos residenciales de alta gama, institucionales y comerciales, expandiendo nuestros horizontes a Estados Unidos, Europa, África y Asia.</p>
-                    <p class="text-600 mb-8">Nos caracterizamos por la pasión por los detalles, la funcionalidad y un compromiso inquebrantable con la arquitectura sustentable, creando obras de arte que se adaptan a su entorno y usuarios.</p>
-                    <div class="flex flex-wrap gap-4">
-                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Diseño Arquitectónico</div>
-                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Diseño de Interiores</div>
-                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Paisajismo</div>
-                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Master Plan</div>
-                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Visualización 3D</div>
-                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full">Sustentabilidad</div>
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <div class="grid grid-cols-2 gap-4">
-                        <!-- Reemplazar con imágenes reales del estudio o proyectos -->
-                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Estudio+1" alt="Trabajo de Estudio" class="rounded-lg shadow-md h-64 w-full object-cover">
-                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Equipo" alt="Reunión de Equipo" class="rounded-lg shadow-md h-64 w-full object-cover">
-                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Proceso+Diseño" alt="Proceso de Diseño" class="rounded-lg shadow-md h-64 w-full object-cover">
-                        <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Presentación+Final" alt="Presentación Final" class="rounded-lg shadow-md h-64 w-full object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección de Contacto -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Contáctenos</h2>
-                    <p class="text-gray-600 mb-8">¿Listo para discutir su proyecto? Contáctenos para una consulta y presupuesto sin compromiso.</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mt-1 mr-4">
-                                <i class="fas fa-map-marker-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1">Nuestra Oficina</h4>
-                                <p class="text-gray-600">123 Calle del Diseño, Distrito Creativo<br>Londres, UK EC1V 9LB</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mt-1 mr-4">
-                                <i class="fas fa-envelope text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1">Envíanos un Email</h4>
-                                <p class="text-gray-600">info@velascosotoarquitectos.com<br>proyectos@velascosotoarquitectos.com</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start">
-                            <div class="text-blue-600 mt-1 mr-4">
-                                <i class="fas fa-phone-alt text-xl"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-lg mb-1">Llámanos</h4>
-                                <p class="text-gray-600">+44 20 1234 5678<br>Lun-Vie, 9am-6pm GMT</p>
-                            </div>
+                <!-- Nuevo Proyecto: Pinar -->
+                <div class="project-card bg-white rounded-lg overflow-hidden shadow-lg" onclick="openModal('pinarModal');">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Pinar01.jpg" alt="Pinar - Exterior Vista" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Pinar</h3>
+                        <p class="text-gray-600 mb-4">Residencia en Guadalajara, Jalisco (Proyecto).</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Residencial</span>
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">Ver Proyecto →</a>
                         </div>
                     </div>
-                    
-                    <div class="mt-10">
-                        <h4 class="font-bold text-lg mb-4">Síganos</h4>
-                        <div class="flex space-x-4">
-                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
-                                <i class="fab fa-instagram text-2xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
-                                <i class="fab fa-behance text-2xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
-                                <i class="fab fa-linkedin-in text-2xl"></i>
-                            </a>
-                            <a href="#" class="text-gray-700 hover:text-blue-600 transition">
-                                <i class="fab fa-vimeo-v text-2xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="md:w-1/2">
-                    <form class="bg-gray-50 p-8 rounded-lg shadow-md">
-                        <div class="mb-6">
-                            <label for="name" class="block text-gray-700 font-medium mb-2">Su Nombre</label>
-                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label for="email" class="block text-gray-700 font-medium mb-2">Correo Electrónico</label>
-                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label for="project" class="block text-gray-700 font-medium mb-2">Tipo de Proyecto</label>
-                            <select id="project" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-                                <option value="">Seleccione tipo de proyecto</option>
-                                <option value="arquitectura">Diseño Arquitectónico</option>
-                                <option value="interiores">Diseño de Interiores</option>
-                                <option value="paisajismo">Paisajismo</option>
-                                <option value="masterplan">Master Plan</option>
-                                <option value="visualizacion">Visualización</option>
-                                <option value="supervision">Supervisión de Obra</option>
-                                <option value="administracion">Administración de Obra</option>
-                                <option value="grafico">Diseño Gráfico</option>
-                                <option value="other">Otro</option>
-                            </select>
-                        </div>
-                        
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 font-medium mb-2">Detalles del Proyecto</label>
-                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent"></textarea>
-                        </div>
-                        
-                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
-                            Enviar Mensaje
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -774,10 +275,10 @@
                 <div>
                     <h4 class="font-bold text-lg mb-4">Enlaces Rápidos</h4>
                     <ul class="space-y-2">
-                        <li><a href="proyectos.html" class="text-gray-400 hover:text-white transition">Portafolio</a></li>
-                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Servicios</a></li>
-                        <li><a href="#about" class="text-gray-400 hover:text-white transition">Nosotros</a></li>
-                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contacto</a></li>
+                        <li><a href="#portfolio" class="text-gray-400 hover:text-white transition">Portafolio</a></li>
+                        <li><a href="index.html#services" class="text-gray-400 hover:text-white transition">Servicios</a></li>
+                        <li><a href="index.html#about" class="text-gray-400 hover:text-white transition">Nosotros</a></li>
+                        <li><a href="index.html#contact" class="text-gray-400 hover:text-white transition">Contacto</a></li>
                     </ul>
                 </div>
                 
@@ -814,11 +315,7 @@
         </div>
     </footer>
 
-    <!-- Modales de Proyectos (solo para la página principal, si se desea mantener) -->
-    <!-- Si estos modales solo se usarán en proyectos.html, se pueden eliminar de aquí.
-         Por ahora, los dejo para mantener la funcionalidad si se accede a ellos desde la sección de "Proyectos Destacados"
-         en la página principal antes de ir al portafolio completo. -->
-
+    <!-- Modales de Proyectos -->
     <!-- Modal para Kokoro Boutique -->
     <div id="kokoroModal" class="modal">
         <div class="modal-content">
@@ -1097,6 +594,43 @@
         </div>
     </div>
 
+    <!-- Modal para Pinar (Nuevo Proyecto) -->
+    <div id="pinarModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('pinarModal')">&times;</span>
+            
+            <!-- Diseño para pantallas pequeñas (móvil) -->
+            <div class="flex flex-col md:hidden">
+                <div class="p-4 bg-pinar-green text-white rounded-lg shadow-lg mb-4">
+                    <h3 class="text-xl font-bold mb-4">Pinar</h3>
+                    <p class="text-base mb-2"><strong>Tipo:</strong> Residencial</p>
+                    <p class="text-base mb-2"><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
+                    <p class="text-base mb-2"><strong>Estado:</strong> Proyecto</p>
+                </div>
+                <div class="grid grid-cols-1 gap-4">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Pinar01.jpg" alt="Pinar - Vista 1" class="w-full h-auto rounded-lg shadow-md">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Pinar03.jpg" alt="Pinar - Vista 2" class="w-full h-auto rounded-lg shadow-md">
+                </div>
+            </div>
+
+            <!-- Diseño para pantallas medianas y grandes (escritorio) -->
+            <div class="hidden md:flex flex-col gap-4 w-full h-full">
+                <!-- Contenedor relativo para las imágenes y el cuadro de información superpuesto -->
+                <div class="relative w-full">
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Pinar01.jpg" alt="Pinar - Vista 1" class="w-full h-auto rounded-lg shadow-md">
+                    <!-- Cuadro de información posicionado entre ambas imágenes y a la izquierda -->
+                    <div class="absolute left-4 top-1/2 transform -translate-y-1/2 p-4 bg-pinar-green text-white rounded-lg shadow-lg z-10" style="width: 250px;">
+                        <h3 class="text-xl font-bold mb-4">Pinar</h3>
+                        <p class="text-base mb-2"><strong>Tipo:</strong> Residencial</p>
+                        <p class="text-base mb-2"><strong>Ubicación:</strong> Guadalajara, Jalisco</p>
+                        <p class="text-base mb-2"><strong>Estado:</strong> Proyecto</p>
+                    </div>
+                    <img src="/Imagenes/RENDERS/RESIDENCIAL/Pinar03.jpg" alt="Pinar - Vista 2" class="w-full h-auto rounded-lg shadow-md mt-4">
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script>
         // Alternar menú móvil
@@ -1124,7 +658,7 @@
             });
         });
         
-        // Envío de formulario
+        // Envío de formulario (si aplica en esta página, aunque es más común en index.html)
         const form = document.querySelector('form');
         if(form) {
             form.addEventListener('submit', function(e) {
@@ -1154,126 +688,6 @@
                 }
             });
         }
-
-        // Lógica del deslizador de comparación de imágenes
-        document.addEventListener('DOMContentLoaded', function() {
-            const slider = document.getElementById('slider');
-            const beforeImage = document.querySelector('.image-before');
-            const labelBefore = document.querySelector('.label-before');
-            const labelAfter = document.querySelector('.label-after');
-            let isDragging = false;
-            
-            // Función para actualizar la posición
-            function updatePosition(e) {
-                const container = slider.parentElement;
-                const containerRect = container.getBoundingClientRect();
-                let x = e.clientX - containerRect.left;
-                
-                // Limitar dentro del contenedor
-                x = Math.max(0, Math.min(x, containerRect.width));
-                
-                // Calcular porcentaje
-                const percent = (x / containerRect.width) * 100;
-                
-                // Actualizar posición del slider y recorte de la imagen
-                slider.style.left = `${percent}%`;
-                beforeImage.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
-                
-                // Actualizar visibilidad de las etiquetas
-                if (percent < 5) { // Si está muy cerca del 0% (mostrando casi todo el "después")
-                    labelBefore.style.opacity = '0';
-                    labelAfter.style.opacity = '1';
-                } else if (percent > 95) { // Si está muy cerca del 100% (mostrando casi todo el "antes")
-                    labelAfter.style.opacity = '0';
-                    labelBefore.style.opacity = '1';
-                } else {
-                    labelBefore.style.opacity = '1';
-                    labelAfter.style.opacity = '1';
-                }
-            }
-            
-            // Eventos del ratón
-            slider.addEventListener('mousedown', function(e) {
-                isDragging = true;
-                e.preventDefault(); // Evitar selección de texto
-            });
-            
-            document.addEventListener('mousemove', function(e) {
-                if (!isDragging) return;
-                updatePosition(e);
-            });
-            
-            document.addEventListener('mouseup', function() {
-                isDragging = false;
-            });
-            
-            // Eventos táctiles para móviles
-            slider.addEventListener('touchstart', function(e) {
-                isDragging = true;
-            });
-            
-            document.addEventListener('touchmove', function(e) {
-                if (!isDragging) return;
-                updatePosition(e.touches[0]);
-            });
-            
-            document.addEventListener('touchend', function() {
-                isDragging = false;
-            });
-            
-            // Centrar inicialmente y ajustar al redimensionar
-            function initializeSliderPosition() {
-                const container = slider.parentElement;
-                const containerWidth = container.offsetWidth;
-                const initialPercent = 50; // Iniciar al 50%
-                const initialX = (containerWidth * initialPercent) / 100;
-
-                slider.style.left = `${initialPercent}%`;
-                beforeImage.style.clipPath = `inset(0 ${100 - initialPercent}% 0 0)`;
-
-                // Asegurar que ambas etiquetas sean visibles al inicio
-                labelBefore.style.opacity = '1';
-                labelAfter.style.opacity = '1';
-            }
-
-            // Inicializar al cargar la página
-            initializeSliderPosition();
-
-            // Reajustar al redimensionar la ventana
-            window.addEventListener('resize', initializeSliderPosition);
-        });
-
-        // Lógica para el fade de blanco al video
-        document.addEventListener('DOMContentLoaded', function() {
-            const whiteFadeOverlay = document.getElementById('whiteFadeOverlay');
-            // Retrasar el fade-out ligeramente para asegurar que la página se ha renderizado
-            setTimeout(() => {
-                whiteFadeOverlay.style.opacity = '0';
-                // Opcional: Eliminar la capa del DOM después de la transición para liberar recursos
-                whiteFadeOverlay.addEventListener('transitionend', () => {
-                    whiteFadeOverlay.style.display = 'none';
-                });
-            }, 100); // Pequeño retraso
-        });
-
-        // Lógica del carrusel de logos
-        document.addEventListener('DOMContentLoaded', function() {
-            const carouselTrack = document.getElementById('carouselTrack');
-            const slides = document.querySelectorAll('.carousel-slide');
-            const numRealSlides = 8; // Total de logos únicos
-
-            // Duplicar los slides originales para el desplazamiento infinito con CSS
-            // Esto ya se hizo en el HTML, por lo que no es necesario aquí.
-
-            // No se necesita JavaScript para el control de la animación de desplazamiento,
-            // ya que se maneja completamente con CSS (@keyframes scroll-left).
-            // Se elimina toda la lógica de currentIndex, nextSlide, prevSlide, autoScrollInterval.
-
-            // Ajustar la velocidad de la animación en CSS si es necesario.
-            // La duración de la animación se define en el CSS: animation: scroll-left 40s linear infinite;
-
-            // No hay botones, por lo tanto no hay event listeners para ellos.
-        });
     </script>
 </body>
 </html>
